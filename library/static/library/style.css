@@ -1,0 +1,159 @@
+Полностью замени содержимое `static/css/auth.css` этим кодом. Он подходит для обоих шаблонов с `library/base.html`. Розово-оранжевый закат, фиолетовая карточка и крупные заголовки оформляют блок авторизации в духе GTA VI.
+
+.auth-page {
+  --auth-text: #fff4fc;
+  --auth-muted: #dfbfd9;
+  --auth-pink: #ff83c3;
+  --auth-peach: #ffbd86;
+  --auth-error: #ffb6c3;
+
+  color-scheme: dark;
+  display: grid;
+  place-items: center;
+  min-height: 65vh;
+  min-height: 65svh;
+  padding: clamp(24px, 6vw, 72px) 16px;
+  border-radius: 20px;
+  color: var(--auth-text);
+  font-family: system-ui, sans-serif;
+  text-align: left;
+  background:
+    radial-gradient(ellipse at 82% 10%, #ffbc86 0%, transparent 38%),
+    radial-gradient(ellipse at 12% 65%, #b23d87 0%, transparent 55%),
+    linear-gradient(150deg, #24133d 0%, #713267 50%, #1a102e 100%);
+}
+
+.auth-page,
+.auth-page * {
+  box-sizing: border-box;
+}
+
+.auth-page .auth-card {
+  width: 100%;
+  max-width: 460px;
+  min-width: 0;
+  padding: clamp(20px, 5vw, 40px);
+  border: 1px solid #ff83c366;
+  border-radius: 22px;
+  background: #1c112b;
+  box-shadow: 0 24px 60px #12091f99, 0 0 36px #ff659f26;
+}
+
+.auth-page .auth-title {
+  margin: 0 0 24px;
+  color: var(--auth-peach);
+  font: 900 clamp(2.75rem, 9vw, 4.75rem) / 1.05 Impact, "Arial Black", sans-serif;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.auth-page .auth-title--signup {
+  font-size: clamp(1.4rem, 6vw, 2.5rem);
+}
+
+@supports (background-clip: text) {
+  .auth-page .auth-title {
+    background: linear-gradient(180deg, #ffe1a6, #ff82c4);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.auth-page .auth-form {
+  margin: 0;
+}
+
+.auth-page .auth-form > p {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.auth-page .auth-form label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.auth-page .auth-form input:is([type="text"], [type="email"], [type="password"]) {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #987394;
+  border-radius: 10px;
+  background: #110b1e;
+  color: var(--auth-text);
+  font: inherit;
+}
+
+.auth-page .auth-form input[aria-invalid="true"] {
+  border-color: var(--auth-error);
+}
+
+.auth-page :focus-visible {
+  outline: 3px solid var(--auth-peach);
+  outline-offset: 3px;
+}
+
+.auth-page .auth-form .helptext,
+.auth-page .auth-footer {
+  color: var(--auth-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Django может выводить требования к паролю отдельным списком. */
+.auth-page .auth-form > ul,
+.auth-page .auth-form .helptext ul {
+  margin: 0 0 16px;
+  padding-left: 1.25rem;
+  color: var(--auth-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.auth-page .auth-form .errorlist {
+  margin: 0 0 10px;
+  padding-left: 1.25rem;
+  color: var(--auth-error);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.auth-page .auth-button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(105deg, var(--auth-peach), var(--auth-pink));
+  color: #251024;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.auth-page .auth-button:hover {
+  filter: brightness(1.08);
+}
+
+.auth-page .auth-footer {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+.auth-page a {
+  color: var(--auth-pink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-page a:hover {
+  color: var(--auth-peach);
+}
